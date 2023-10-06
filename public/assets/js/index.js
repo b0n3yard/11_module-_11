@@ -4,6 +4,7 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+let noteList2;
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -13,6 +14,7 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
+  noteList2 = document.querySelector('.list-group');
 }
 
 // Show an element
@@ -43,8 +45,13 @@ const saveNote = (note) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(note)
+   
+  })
+  .then((res) =>res.json()).then(data =>  {
+    console.log(data)
+    
+    getAndRenderNotes()
   });
-
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -75,7 +82,8 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value
+    text: noteText.value,
+    id: 1
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -105,6 +113,7 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  console.log(activeNote);
   renderActiveNote();
 };
 
@@ -189,6 +198,8 @@ if (window.location.pathname === '/notes') {
   newNoteBtn.addEventListener('click', handleNewNoteView);
   clearBtn.addEventListener('click', renderActiveNote);
   noteForm.addEventListener('input', handleRenderBtns);
+  // noteList.addEventListener('click', handleNoteView);
+  // noteList2.addEventListener('click', handleNoteView);
 }
 
 getAndRenderNotes();
