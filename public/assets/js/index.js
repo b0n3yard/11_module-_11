@@ -79,7 +79,8 @@ const renderActiveNote = () => {
   }
 };
 
-const handleNoteSave = () => {
+const handleNoteSave =  () => {
+  console.log(activeNote.length)
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
@@ -139,11 +140,14 @@ const handleRenderBtns = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
+  console.log(jsonNotes.length)
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
+    // count += 1;
   }
 
   let noteListItems = [];
+ 
 
   // Returns HTML element with or without a delete button
   const createLi = (text, delBtn = true) => {

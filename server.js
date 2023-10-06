@@ -56,4 +56,8 @@ console.log(hi)
     //     console.log('data')
 
 })
+// app.delete('/api/notes/:id',(cro,sro) =>{
+//     const notes = req.params.id
+//     res.sendstatus(204)
+// })
 app.listen(3335, ( ) => console.log('started'))
