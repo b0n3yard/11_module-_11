@@ -48,6 +48,9 @@ app.post('/api/notes',(cro,sro) =>{
     fs.writeFile(data,JSON.stringify(notes),'utf8',()=>{
         console.log('write')
     })
+    sro.json({
+        message: "update success"
+      })
     
 })
 console.log(hi) 
