@@ -5,6 +5,7 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 let noteList2;
+// const db = require('../../../db/db.json')
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -80,7 +81,7 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave =  () => {
-  console.log(activeNote.length)
+  // const noteid = db.length + 1;
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
@@ -140,6 +141,7 @@ const handleRenderBtns = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
+ let count = 1;
   console.log(jsonNotes.length)
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
@@ -185,8 +187,10 @@ const renderNoteList = async (notes) => {
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
-
+    // note.id = count
+    // console.log(note.id)
     noteListItems.push(li);
+    count += 1;
   });
 
   if (window.location.pathname === '/notes') {
