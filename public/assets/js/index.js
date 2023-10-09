@@ -187,12 +187,12 @@ const renderNoteList = async (notes) => {
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
-    // note.id = count
+    note.id = count
     // console.log(note.id)
     noteListItems.push(li);
     count += 1;
   });
-
+  console.log(jsonNotes)
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
