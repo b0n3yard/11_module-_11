@@ -42,12 +42,17 @@ app.post('/api/notes',(cro,sro) =>{
        
    
     const notes =JSON.parse(json)
-    console.log(notes) 
-    console.log(notes.length)
+    let count = 1
+    // console.log(notes) 
+    // console.log(notes.length)
     notes.push(cro.body)
-    cro.body.id = notes.length 
-    console.log('cro.body', cro.body.id)
-    console.log(notes) 
+    notes.forEach(note => {
+        note.id = count
+        count += 1
+    });
+    // cro.body.id = notes.length 
+    // console.log('cro.body', cro.body.id)
+    // console.log(notes) 
     fs.writeFile(data,JSON.stringify(notes),'utf8',()=>{
         console.log('write')
     })
