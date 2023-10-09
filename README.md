@@ -14,7 +14,7 @@ to install this project
 - run the included script in the console "npm run setup" 
 # usage  
 - once installed you can initiate the program by running "npm start" or test the program by running "npm test"
-- or visit the hosted site [here](https://warm-harbor-53771-055a0712cfd7.herokuapp.com/notes)
+- or visit the hosted site [here](https://warm-harbor-53771-055a0712cfd7.herokuapp.com/)
 # Credits
 Michael Klein
 # testing
