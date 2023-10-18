@@ -13,6 +13,10 @@ to install this project
 - first pull the repo from [github](https://github.com/b0n3yard/Small_Note_Taker) 
 - run the included script in the console "npm run setup" 
 # usage  
+
+https://github.com/b0n3yard/Small_Note_Taker/assets/6476766/138ed86b-c1da-4929-9dd8-07831572346e
+
+
 - once installed you can initiate the program by running "npm start" or test the program by running "npm test"
 - or visit the hosted site [here](https://warm-harbor-53771-055a0712cfd7.herokuapp.com/)
 # Credits
